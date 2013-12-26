@@ -1,0 +1,52 @@
+-----------------------------------------------------------------------------
+                   MaltOptimizer 1.0
+-----------------------------------------------------------------------------
+         Miguel Ballesteros* and Joakim Nivre**
+          *Complutense University of Madrid (Spain)  
+                **Uppsala University (Sweden)   
+-----------------------------------------------------------------------------
+PHASE 2: PARSING ALGORITHM SELECTION
+
+MaltOptimizer found in Phase 1 that your training set contains
+a substantial amount of non-projective trees and will therefore 
+only try non-projective algorithms.
+
+Testing the non-projective algorithms ...
+
+               CovingtonNonProjective --vs-- StackLazy
+                          /                     \
+                         /                       \
+                        /                         \
+                       /                           \
+                      /                             \
+                     /                               \
+                    /                                 \
+               NivreEager+PP             StackEager --vs-- StackProjective+PP
+                    |                                  |
+                    |                                  |
+         CovingtonProjective+PP                 NivreStandard+PP
+
+
+Testing the Covington-Non-Projective algorithm ...
+New best algorithm: covnonproj
+Incremental LAS improvement: + 1.68% (85.70%)
+Testing the StackLazy algorithm ...
+Testing the NivreEager algorithm with pseudo-projective parsing (PP) ...
+Best Non-Projective algorithm: CovingtonNonProjective
+
+-----------------------------------------------------------------------------
+MaltOptimizer found that the best parsing algorithm is: covnonproj
+Testing the Covington-Non-Projective algorithm ...
+New allow_shift option: true
+Incremental LAS improvement: + 0.16% (85.86%)
+Incremental improvement over the baseline at the end of Phase 2: +1.84% (85.86%) 
+-----------------------------------------------------------------------------
+MaltOptimizer has completed the parsing algorithm selection phase for your
+training set and saved the results for future use in phase2_logFile.txt. 
+Updated MaltParser options can be found in phase2_optFile.txt. If you want
+to change any of these options, you should edit phase2_optFile.txt before.
+you start the next optimization phase.
+
+To proceed with Phase 3 (Feature Selection) run the following command:
+java -jar MaltOptimizer.jar -p 3 -m <malt_path> -c <trainingCorpus>
+END

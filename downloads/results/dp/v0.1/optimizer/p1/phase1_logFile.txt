@@ -1,0 +1,13 @@
+Training set path:PDT.conll
+Size (tokens):189572
+Size (sentences):12455
+Non projective:20.216780409474104
+Dangling Punctuation:0
+LAS:82.25
+Default:82.25
+NumRootLabels:12
+JavaHeap:-Xmx5120m
+MaxTokens:2147483647
+CposEqPos:false
+LemmaBlank:false
+FeatsBlank:false

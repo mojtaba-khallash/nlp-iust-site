@@ -1,0 +1,68 @@
+-----------------------------------------------------------------------------
+                   MaltOptimizer 1.0
+-----------------------------------------------------------------------------
+         Miguel Ballesteros* and Joakim Nivre**
+
+          *Complutense University of Madrid (Spain)  
+                **Uppsala University (Sweden)   
+-----------------------------------------------------------------------------
+PHASE 1: DATA ANALYSIS
+In order to optimize MaltParser for your training set, MaltOptimizer will 
+first analyze the data and set some basic parameters.
+-----------------------------------------------------------------------------
+DATA VALIDATION
+Validating the CoNLL data format ...  (may take a few minutes)
+Your training set is in valid CoNLL format, but the validation script
+gave some warnings, so you may want to consult the logfile
+ C:\logValidationFile.txt .
+-----------------------------------------------------------------------------
+DATA CHARACTERISTICS
+Your training set consists of 12455 sentences and 189572 tokens.
+Testing Java Heap ... 
+MaltOptimizer has inferred that MaltParser needs at least 4Gb of free memory.
+CPOSTAG and POSTAG are distinct in your training set.
+The LEMMA column is used in your training set.
+The FEATS column is used in your training set.
+Your training set contains a substantial amount of non-projective trees (20.21 %).
+Your training set does not contain unattached internal punctuation.
+Your training set has multiple DEPREL labels for tokens where HEAD=0:
+VCONJ: 0.032% 
+MOZ: 0.016% 
+PRD: 0.016% 
+POSDEP: 0.008% 
+NVE: 0.016% 
+PUNC: 0.008% 
+NCONJ: 0.008% 
+ROOT: 99.78% 
+NPOSTMOD: 0.024% 
+SBJ: 0.016% 
+PREDEP: 0.024% 
+VCL: 0.048% 
+-----------------------------------------------------------------------------
+BASIC OPTIMIZATION SETUP 
+Generating training and test files for optimization...
+Five cross-validation folds generated.
+Generated training set (162580 tokens) and devtest set (39446 tokens).
+Given that your data set is relatively large, we recommend using a single 
+development set during subsequent optimization phases. If you prefer to use 5-fold cross-validation, you can specify this instead (-v cv).
+Testing the default settings ... (may take a few seconds)
+LAS with default settings: 82.25%
+Testing root labels ... 
+ROOT
+
+VCL
+
+VCONJ
+
+Default root label reset: -grl ROOT
+82.25
+82.25
+-----------------------------------------------------------------------------
+MaltOptimizer has completed the analysis of your training set and saved the
+results for future use in /phase1_logFile.txt. Updated MaltParser options can be found
+in /phase1_optFile.txt. If you want to change any of these options, you should
+edit /phase1_optFile.txt before you start the next optimization phase.
+
+To proceed with Phase 2 (Parsing Algorithm) run the following command:
+java -jar MaltOptimizer.jar -p 2 -m <malt_path> -c <trainingCorpus>
+END

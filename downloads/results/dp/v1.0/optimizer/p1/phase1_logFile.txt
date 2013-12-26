@@ -1,0 +1,13 @@
+Training set path:train.conll
+Size (tokens):399152
+Size (sentences):23984
+Non projective:21.98
+Dangling Punctuation:0
+LAS:84.02
+Default:84.02
+NumRootLabels:1
+JavaHeap:-Xmx6144m
+MaxTokens:2147483647
+CposEqPos:false
+LemmaBlank:false
+FeatsBlank:false

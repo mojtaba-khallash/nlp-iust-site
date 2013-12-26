@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="title" content="Dependency Parsing Toolbox"/>
+		<meta name="category" content="Dependency Parsing Tool"/>
+		<meta name="classification" content="natural language processing dependency parsing"/>
+		<title>Dependency Parsing Toolbox | IUST NLP group</title>
+		<meta name="description" content="Introduce dependency parsing toolbox that contains Type Converter, Reading Corpus, Create Dependency Graph, Projectivizing, Optimizing, Training, Parsing, Evaluating and Hybrid methods."/>
+		
+		<link rel="stylesheet" href="../../../css/mainStyle.css" type="text/css">
+		<link rel="stylesheet" href="../../css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../css/jquery.tabs.css" type="text/css" media="print, projection, screen">
+		<!-- Additional IE/Win specific style sheet (Conditional Comments) -->
+		<!--[if lte IE 7]>
+		<link rel="stylesheet" href="../../../css/jquery.tabs-ie.css" type="text/css" media="projection, screen">
+		<![endif]-->
+		
+		<script src="../../../js/jquery.js" type="text/javascript"></script>
+		<script src="../../../js/jquery.tabs.pack.js" type="text/javascript"></script>
+		<script src="../../../js/jquery.stickyscroll.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="header">
+			<a class="lang" href="../../../fa/tools/dp/toolbox.html">
+				<img src="../../../images/flag/Persian.png">
+				فارسی
+			</a>
+			<div>
+				<a href="../index.html" class="logo">
+					<img src="../../../images/iust.gif" alt="logo"/>
+				</a>
+				<ul>
+					<li>
+						<a href="../../index.html">Home</a>
+					</li>
+					<li style="width: 135px;">
+						<a href="../../researchs.html">Researchs</a>
+					</li>
+					<li>
+						<a href="../../publications.html">Publications</a>
+					</li>
+					<li>
+						<a href="../../about.html">About Us</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="download_place">
+			<center>
+				Download
+			</center>
+			<hr/>
+			<a href="https://github.com/mojtaba-khallash/dependency-parsing-toolbox" class="git" style="margin: 0px 15px;">Download Source Code</a>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$.fn.followTo = function ( pos ) {
+					var $this = this,
+						$window = $(window);
+
+					$window.scroll(function(e){
+						if ($window.scrollTop() > pos) {
+							$this.css({
+								position: 'fixed',
+								top: 10
+							});
+						} else {
+							$this.css({
+								position: 'absolute',
+								top: pos
+							});
+						}
+					});
+				};
+
+				top_value = parseInt($('.download_place').css('top'));
+				$('.download_place').followTo(top_value);
+			});
+		</script>
+		
+		<div id="body">
+			<h1>Dependency Parsing Toolbox</h1>
+			<p>
+				There are various tools for dependency parsing, But until now, an integrated environment with different algorithms and methods of dependency paring 
+				hadn't been designed. In this toolbox, different existing algorithms and their related requirements are collected or developed in one place. All of 
+				existing parsers is ran in command line mode and any of them have its specific parameters and it forced you to read their documents when you want to 
+				work with them. In this toolbox we has designed an user interface on top of existing tools that has simplified usage of them.
+				You can read more about each parts here:
+			</p>
+			<div class="footer tabbed">
+				<ul>
+					<li><a href="#format-converter"><span>Type Converter</span></a></li>
+					<li><a href="#reading-corpus"><span>Reading Corpus</span></a></li>
+					<li><a href="#create-tree"><span>Create Dependency Graph</span></a></li>
+					<li><a href="#projectivizing"><span>Projectivizing</span></a></li>
+					<li><a href="#optimizing"><span>Optimizing</span></a></li>
+					<li><a href="#training"><span>Training</span></a></li>
+					<li><a href="#parsing"><span>Parsing</span></a></li>
+					<li><a href="#evaluating"><span>Evaluating</span></a></li>
+					<li><a href="#hybrid-methods"><span>Hybrid Methods</span></a></li>
+				</ul>
+				<div id="format-converter">
+					<img src="../../../images/tools/type_converter.jpg" alt="reading corpus" style="width:400px;float:right;"/>
+					<span class="title">Specification</span>
+					<ul class="items">
+						<li>Convert from mst type to conll and vice versa</li>
+						<li>Convert between three formats: tiger، malt-tab and malt-xml</li>
+					</ul>
+					<br/>
+					<span class="title">Used Tools</span>
+					<ul class="items">
+						<li>MaltConverter</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="reading-corpus">
+					<img src="../../../images/tools/read_corpus.jpg" alt="reading corpus" style="width:400px;float:right;"/>
+					<span class="title">Specification</span>
+					<ul class="items">
+						<li>Draw dependency graph in four modes</li>
+						<li>Draw length distribution of treebank sentences</li>
+					</ul>
+					<br/>
+					<span class="title">Used Tools</span>
+					<ul class="items">
+						<li>MaltEval</li>
+						<li>Chart2D</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="create-tree">
+					<img src="../../../images/tools/create_dt.jpg" alt="create dependency tree" style="width:400px;float:right;"/>
+					<span class="title">Specification</span>
+					<ul class="items">
+						<li>Adding words with its part-of-speech</li>
+						<li>Any added word by default dependent to root of sentence by ROOT label</li>
+						<li>Save generated tree to conll format</li>
+					</ul>
+					<br/>
+					<span class="title">Used Tools</span>
+					<ul class="items">
+						<li>MaltEval</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="projectivizing">
+					<img src="../../../images/tools/projection.jpg" alt="projection of dependency tree" style="width:500px;float:right;"/>
+					<span class="title">Specification</span>
+					<ul class="items">
+						<li>Show tree before and after projectivizing</li>
+					</ul>
+					<br/>
+					<span class="title">Used Tools</span>
+					<ul class="items">
+						<li>MaltParser</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="optimizing">
+					<img src="../../../images/tools/optimizing.jpg" alt="optimizing" style="width:400px;float:right;"/>
+					<span class="title">Specification</span>
+					<ul class="items">
+						<li>Optimizing MaltParser in three phases</li>
+					</ul>
+					<br/>
+					<span class="title">Used Tools</span>
+					<ul class="items">
+						<li>MaltOptimizer</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="training">
+					<img src="../../../images/tools/train.jpg" alt="reading corpus" style="width:400px;float:right;"/>
+					<span class="title">Specification</span>
+					<ul class="items">
+						<li></li>
+					</ul>
+					<br/>
+					<span class="title">Used Tools</span>
+					<ul class="items">
+						<li>MaltParser</li>
+						<li>ClearParser</li>
+						<li>MSTParser</li>
+						<li>Mate-Tools</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="parsing">
+					<img src="../../../images/tools/test.jpg" alt="reading corpus" style="width:400px;float:right;"/>
+					<span class="title">Specification</span>
+					<ul class="items">
+						<li>Show Gold and Parse trees in order to compare them</li>
+					</ul>
+					<br/>
+					<span class="title">Used Tools</span>
+					<ul class="items">
+						<li>MaltParser</li>
+						<li>ClearParser</li>
+						<li>MSTParser</li>
+						<li>Mate-Tools</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="evaluating">
+					<img src="../../../images/tools/eval.jpg" alt="evaluating" style="width:400px;float:right;"/>
+					<span class="title">Specification</span>
+					<ul class="items">
+						<li>Specify one or several evaluation metric</li>
+						<li>Support grouping, Filtering and sorting results</li>
+						<li>Compute confusion matrix</li>
+					</ul>
+					<br/>
+					<span class="title">Used Tools</span>
+					<ul class="items">
+						<li>MaltEval</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="hybrid-methods">
+					<div>
+						<img src="../../../images/tools/ensemble.jpg" alt="ensemble" style="width:400px;float:right;"/>
+						<h2>Integration at parsing time (Ensemble)</h2>
+						<span class="title">Specification</span>
+						<ul class="items">
+							<li>Support four algorithms: Voting, Attardi, Eisner, Chu-Liu-Edmonds</li>
+						</ul>
+						<br/>
+						<span class="title">Used Tools</span>
+						<ul class="items">
+							<li>Ensemble</li>
+							<li>MaltBlender</li>
+						</ul>
+						<br style="clear:both;"/>
+					</div>
+					<div style="margin-top:10px;">
+						<img src="../../../images/tools/stacking.jpg" alt="stacking" style="width:400px;float:right;clear:left;"/>
+						<h2>Integrate at learning time (Stacking)</h2>
+						<span class="title">Specification</span>
+						<ul class="items">
+							<li>Can be use MaltParser and MSTParser in level 1</li>
+							<li>Can be use MSTParser in level 2</li>
+						</ul>
+						<br/>
+						<span class="title">Used Tools</span>
+						<ul class="items">
+							<li>MSTParserStack</li>
+						</ul>
+						<br style="clear:both;"/>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				$(function() {
+					$('.footer').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'normal' });
+				});
+			</script>
+		</div>
+		
+		<div id="footer">
+			<div>
+				<ul class="connect">
+					<li class="iust">
+						<a href="http://www.iust.ac.ir/index.php?slc_lang=en&sid=14" title="School of Computer Engineering">School of Computer Engineering</a>
+					</li>
+				</ul>
+			</div>
+			<p>
+				Natural language and Text Processing Laboratory of Iran University of Science and Technology
+				<br/>
+				Copyright &copy; 2012. All Rights Reserved
+			</p>
+		</div>
+	</body>
+</html>

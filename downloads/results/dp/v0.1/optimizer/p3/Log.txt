@@ -1,0 +1,174 @@
+-----------------------------------------------------------------------------
+                   MaltOptimizer 1.0
+-----------------------------------------------------------------------------
+         Miguel Ballesteros* and Joakim Nivre**
+
+          *Complutense University of Madrid (Spain)  
+                **Uppsala University (Sweden)   
+-----------------------------------------------------------------------------
+PHASE 3: FEATURE SELECTION
+
+MaltOptimizer is going to perform the following feature selection experiments:
+1. Tune the window of POSTAG n-grams over the parser state.
+2. Tune the window of FORM features over the parser state.
+3. Tune DEPREL and POSTAG features over the partially built dependency tree.
+4. Add POSTAG and FORM features over the input string.
+5. Add CPOSTAG, FEATS, and LEMMA features if available.
+6. Add conjunctions of POSTAG and FORM features.
+-----------------------------------------------------------------------------
+1. Tuning the window of POSTAG n-grams ... 
+
+  rm InputColumn(POSTAG,Left[1])
+
+  add InputColumn(POSTAG, Left[2])
+
+  rm InputColumn(POSTAG,Right[3])
+
+  add InputColumn(POSTAG, Right[4])
+
+  rm InputColumn(POSTAG,LeftContext[0])
+
+  add InputColumn(POSTAG, LeftContext[1])
+  add InputColumn(POSTAG, LeftContext[1])
+
+  rm InputColumn(POSTAG,RightContext[0])
+
+  add InputColumn(POSTAG, RightContext[1])
+  add InputColumn(POSTAG, RightContext[1]
+
+Best feature model: CovingtonNonProjective.xml
+-----------------------------------------------------------------------------
+2. Tuning the window of FORM features ... 
+
+  rm InputColumn(FORM,Left[0])
+
+  rm InputColumn(FORM,Right[1])
+
+  add InputColumn(FORM, Right[2])
+
+  rm InputColumn(FORM, head(Left[0]))
+
+  add InputColumn(FORM, head(head(Left[0])))
+
+Best feature model: CovingtonNonProjective.xml
+-----------------------------------------------------------------------------
+3. Tuning dependency tree features ... 
+
+  rm Merge3(InputColumn(POSTAG, Left[0]), OutputColumn(DEPREL, ldep(Left[0])), OutputColumn(DEPREL, rdep(Left[0])))
+
+  rm Merge(InputColumn(POSTAG, Left[0]), OutputColumn(DEPREL, Left[0]))
+
+  rm Merge(InputColumn(POSTAG, Right[0]), OutputColumn(DEPREL, ldep(Right[0])))
+
+  add InputColumn(POSTAG, ldep(Left[0]))
+
+  add InputColumn(POSTAG, rdep(Left[0]))
+
+Best feature model: CovingtonNonProjective.xml
+-----------------------------------------------------------------------------
+4. Adding string features ... 
+
+  add InputColumn(POSTAG,pred(Left[0]))
+
+  add InputColumn(POSTAG,succ(Left[0]))
+
+  add InputColumn(POSTAG,pred(Right[0]))
+
+  add InputColumn(POSTAG,succ(Right[0]))
+
+Best feature model: CovingtonNonProjective.xml
+-----------------------------------------------------------------------------
+5. Adding CPOSTAG, FEATS, and LEMMA features ... 
+
+Adding CPOSTAG features ...
+  add InputColumn(CPOSTAG, Right[0])
+
+  add InputColumn(CPOSTAG, Left[0])
+
+Adding LEMMA features ...
+  add InputColumn(LEMMA, Right[0])
+  
+New best feature model: addRightLEMMA0.xml
+Incremental LAS improvement: + 0.370% (84.01%)
+
+  add InputColumn(LEMMA, Right[1])
+
+New best feature model: addRightLEMMA1.xml
+Incremental LAS improvement: + 0.309% (84.32%)
+
+  add InputColumn(LEMMA, Right[2])
+
+  add InputColumn(LEMMA, Left[0])
+
+New best feature model: addStackLEMMA0.xml
+Incremental LAS improvement: + 0.5% (84.82%)
+
+  add InputColumn(LEMMA, Left[1])
+
+New best feature model: addStackLEMMA1.xml
+Incremental LAS improvement: + 0.050% (84.87%)
+
+  add InputColumn(LEMMA, Left[2])
+
+Adding FEATS features ... 
+  add Split(InputColumn(FEATS, Right[0]),|)
+
+New best feature model: addSplitRightFEATS0.xml
+Incremental LAS improvement: + 0.060% (84.93%)
+
+  add Split(InputColumn(FEATS, Right[1]),|)
+
+  add Split(InputColumn(FEATS, Left[0]),|)
+
+  add InputColumn(FEATS, Right[0])
+
+  add InputColumn(FEATS, Left[0])
+
+Best feature model: addSplitRightFEATS0.xml
+-----------------------------------------------------------------------------
+6. Adding conjunctions of POSTAG and FORM features... 
+
+  add Merge(InputColumn(POSTAG, Right[0]), InputColumn(FORM, Right[0]))
+
+New best feature model: addMergPOSTAGFORMRight0.xml
+Incremental LAS improvement: + 0.069% (85.00%)
+
+  add Merge(InputColumn(POSTAG, Right[1]), InputColumn(FORM, Right[1]))
+
+  add Merge(InputColumn(POSTAG, Left[0]), InputColumn(FORM, Right[0])
+
+  add Merge(InputColumn(POSTAG, Right[0]), InputColumn(FORM, Right[1]))
+
+  add Merge3(InputColumn(POSTAG, Right[0]), InputColumn(POSTAG, Left[0]), InputColumn(FORM, Right[0]))
+
+New best feature model: addMergPOSTAGS0I0FORMRight0.xml
+Incremental LAS improvement: + 0.060% (85.06%)
+
+  add Merge3(InputColumn(POSTAG, Right[0]), InputColumn(POSTAG, Left[0]), InputColumn(FORM, Right[1]))
+
+Best feature model: addMergPOSTAGS0I0FORMRight0.xml
+-----------------------------------------------------------------------------
+MaltOptimizer has concluded feature selection and is going to tune the SVM cost parameter.
+
+Testing: C=0.01
+82.01(Best:85.06)
+
+Testing: C=0.2
+84.49(Best:85.06)
+
+Testing: C=0.4
+83.79(Best:85.06)
+
+Testing: C=0.6
+83.2(Best:85.06)
+
+Testing: C=0.8
+82.81(Best:85.06)
+
+Best C value: 0.1
+Incremental improvement over the baseline at the end of Phase 3: + 2.810% (85.06)
+-----------------------------------------------------------------------------
+MaltOptimizer has completed the feature model testing phase using your training set,
+it saved the results for future use in phase3_logFile.txt. Updated MaltParser 
+options can be found in phase3_optFile.txt.
+END

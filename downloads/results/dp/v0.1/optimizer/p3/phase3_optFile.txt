@@ -1,0 +1,6 @@
+1. root_label (-grl):ROOT
+2. covered_root (-pcr):none
+3. parsing_algorithm (-a):covnonproj
+5. allow_shift (-cs):true
+6. allow_root (-cr):true
+8. feature_model (-F):addMergPOSTAGS0I0FORMRight0.xml

@@ -1,0 +1,67 @@
+/* Website Template by freewebsitetemplates.com */
+@font-face {
+	font-family: 'Forum-Regular';
+	src: url('../fonts/Forum-Regular.eot');
+	src: url('../fonts/Forum-Regular.woff') format('woff'), 
+		 url('../fonts/Forum-Regular.ttf') format('truetype'), 
+		 url('../fonts/Forum-Regular.svg') format('svg');
+}
+body * {
+	font-family: 'Forum-Regular';
+}
+#header div a.logo {
+	float: left;
+	margin: 10px 0 0 26px;
+}
+#header div ul {
+	float: right;
+}
+#header div ul li {
+	float: left;
+	font-size: 14px;
+}
+#body .footer ul.items li {
+	text-align: left;
+}
+#body .tabbed > ul li {
+	float: left;
+}
+#body .content ul li {
+	float: left;
+}
+#body .content ul li a img {
+	float: left;
+}
+#body .blog .sidebar {
+	float: left;
+}
+#body .blog .content {
+	float: left;
+}
+#body .blog .content .article a.figure {
+	float: left;
+}
+#body h2 {
+	font-size:30px;
+}
+#body .blog .content .article p {
+	float: left;
+}
+#footer div ul.contact {
+	float: left;
+}
+#footer div ul.connect {
+	float: right;
+}
+#footer div ul.connect li {
+	float: left;
+}
+.tabs-nav a {
+	padding-right: 10px!important;
+}
+img.panel {float:left;}
+.about div {margin: 40px;width:400px;}
+.about div.col1 {float:left;clear:left;}
+.about div.col2 {float:right;clear:right;}
+.lang {right: 15px;}
+.git{background: url("../../images/types/git.png") no-repeat scroll left center transparent; padding-left: 20px;}

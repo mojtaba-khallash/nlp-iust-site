@@ -1,0 +1,6 @@
+1. root_label (-grl):ROOT
+2. covered_root (-pcr):none
+3. parsing_algorithm (-a):covnonproj
+4. allow_shift (-cs):true
+5. allow_root (-cr):true
+6. feature_model (-F):addSplitRightFEATS0.xml

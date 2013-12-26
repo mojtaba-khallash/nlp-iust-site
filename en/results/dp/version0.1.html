@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="title" content="Result of experiments on the persian dependendency treebank (version 0.1)"/>
+		<meta name="category" content="Dependency Parsing Results"/>
+		<meta name="classification" content="natural language processing dependency parsing"/>
+		<title>Result of experiments on the persian dependendency treebank (version 0.1)</title>
+		<link rel="stylesheet" href="../../../css/mainStyle.css" type="text/css">
+		<link rel="stylesheet" href="../../css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../css/syntax/shCoreDefault.css" type="text/css"/>
+		
+		<script type="text/javascript" src="../../../js/syntax/shCore.js"></script>
+		<script type="text/javascript" src="../../../js/syntax/shBrushJava.js"></script>
+
+	</head>
+	<body>
+		<div id="header">
+			<a class="lang" href="../../../fa/results/dp/version0.1.html">
+				<img src="../../../images/flag/Persian.png">
+				فارسی
+			</a>
+			<div>
+				<a href="../../index.html" class="logo">
+					<img src="../../../images/iust.gif" alt="logo"/>
+				</a>
+				<ul>
+					<li>
+						<a href="../../index.html">Home</a>
+					</li>
+					<li style="width: 135px;">
+						<a href="../../researchs.html">Researchs</a>
+					</li>
+					<li>
+						<a href="../../publications.html">Publications</a>
+					</li>
+					<li>
+						<a href="../../about.html">About Us</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="body">
+			<h1>Result of experiments on the persian dependendency treebank (version 0.1)</h1>
+			<p>
+				In this page, experimental settings and results which had been applied on the MaltParser and MSTParser in the MSc. Thesis
+				<a href="../../../downloads/articles/Dependency Parsing.pdf" alt="A mechanism for exploring of the effect of different morphologic and morphosyntactic features on Persian dependency parsing">
+					"A mechanism for exploring of the effect of different morphologic and morphosyntactic features on Persian dependency parsing"
+				</a>
+				is presented.
+			</p>
+			<h2>Selecting best algorithm between algorithms of MaltParser for Persian language</h2>
+			<p>
+				<a href="#tbl1">Table 1</a> shows results of aplying all different algorithms which are existed in MaltParser. 
+				It shows that non-projective covington algorithm leads to best accuracy. In all algorithms we use default settings 
+				by invoking below command:
+				<div style="direction:ltr;">
+					<pre class="brush: java;">java -jar maltParser.jar -a (algorithm-name)</pre>
+				</div>
+			</p>
+			<center id="tbl1" style="margin-bottom: 20px;">
+				<div class="tblTitle">Table 1. Results of applying different algorithms in MaltParser on the Persian Language</div>
+				<table cellspacing="0" class="result" style="width: 580px;">
+					<thead>
+						<tr>
+							<td rowspan="2">Type</td>
+							<td rowspan="2">Algorithm</td>
+							<td rowspan="2">Year</td>
+							<td rowspan="2" class="selected">Baseline Accuracy</td>
+							<td colspan="3">Pseudo-projective Accuracy</td>
+						</tr>
+						<tr>
+							<td>Head</td>
+							<td>Path</td>
+							<td>Head+Path</td>
+						</td>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="thead" rowspan="4">Projective</td>
+							<td class="thead">Arc Eager</td>
+							<td>2003</td>
+							<td>81.68</td>
+							<td>82.78</td>
+							<td>82.74</td>
+							<td>82.69</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead">Arc Standard</td>
+							<td>2004</td>
+							<td>79.82</td>
+							<td>81.74</td>
+							<td>81.74</td>
+							<td>81.75</td>
+						</tr>
+						<tr>
+							<td class="thead">Covington</td>
+							<td>2001</td>
+							<td>81.61</td>
+							<td>82.84</td>
+							<td>82.58</td>
+							<td>82.62</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead">Stack</td>
+							<td>2009</td>
+							<td>79.94</td>
+							<td>81.84</td>
+							<td>81.87</td>
+							<td>81.86</td>
+						</tr>
+						<tr>
+							<td rowspan="3" class="selected">Non-Projective</td>
+							<td class="selected">Covington</td>
+							<td>2001</td>
+							<td class="selected">83.16</td>
+							<td>82.90</td>
+							<td>82.77</td>
+							<td>-</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead">Stack Eager</td>
+							<td>2009</td>
+							<td>77.21</td>
+							<td>82.06</td>
+							<td>81.95</td>
+							<td>81.97</td>
+						</tr>
+						<tr>
+							<td class="thead">Stack Lazy</td>
+							<td>2009</td>
+							<td>81.31</td>
+							<td>81.84</td>
+							<td>81.86</td>
+							<td>81.86</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead" rowspan="2">Planar</td>
+							<td class="thead">Planar</td>
+							<td>2010</td>
+							<td>80.50</td>
+							<td>81.16</td>
+							<td>81.04</td>
+							<td>81.09</td>
+						</tr>
+						<tr>
+							<td class="thead">2-planar</td>
+							<td>2010</td>
+							<td>80.68</td>
+							<td>81.28</td>
+							<td>81.14</td>
+							<td>81.25</td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
+			<h2>Selecting best algorithm between algorithms of MSTParser for Persian language</h2>
+			<p>
+				In MSTParser, there are two algorithms for Projective (Eisner) and Non-Projective (Chu-Liu-Edmonds) that 
+				can be used in first and second order mode. Results of applying this algorithms on the persian language is 
+				presented in <a href="#tbl2">Table 2</a>. It shows that non-projective second order algorithm has best accuracy.
+			</p>
+			<center id="tbl2" style="margin-bottom: 20px;">
+				<div class="tblTitle">Table 2. Results of applying different algorithms in MSTParser on the Persian Language</div>
+				<table cellspacing="0" class="result" style="width: 360px;">
+					<thead>
+						<tr>
+							<td>Order</td>
+							<td>Type</td>
+							<td class="selected">Accuracy</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td rowspan="2" class="thead">First</td>
+							<td class="thead">Projective</td>
+							<td>82.94</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead">Non-Projective</td>
+							<td>83.59</td>
+						</tr>
+						<tr>
+							<td rowspan="2" class="selected">Second</td>
+							<td class="thead">Projective</td>
+							<td>83.74</td>
+						</tr>
+						<tr class="alternate">
+							<td class="selected">Non-Projective</td>
+							<td class="selected">84.59</td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
+			<h2>Optimizing MaltParser</h2>
+			<p>
+				<div style="direction:ltr;">
+					<pre class="brush: java;">
+						// Run phase 1
+						java -jar MaltOptimizer.jar -p 1 -m maltParser.jar -c input.conll
+						
+						// Run phase 2
+						java -jar MaltOptimizer.jar -p 2 -m maltParser.jar -c input.conll
+						
+						// Run phase 3
+						java -jar MaltOptimizer.jar -p 3 -m maltParser.jar -c input.conll</pre>
+				</div>
+			</p>
+			<center id="tbl3" style="margin-bottom: 20px;">
+				<div class="tblTitle">Table 3. Results of three MaltOptimizer phase on the Persian Dependency Treebank</div>
+				<table cellspacing="0" class="result" style="width: 360px;">
+					<thead>
+						<tr>
+							<td>Phase 1</td>
+							<td>Phase 2</td>
+							<td>Phase 3</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>82.25</td>
+							<td>83.64</td>
+							<td>85.06</td>
+						</tr>
+						<tr style="text-align:left;">
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p1/Log.txt">Log.txt</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p2/Log.txt">Log.txt</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p3/Log.txt">Log.txt</a></td>
+						</tr>
+						<tr style="text-align:left;">
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p1/phase1_logFile.txt">phase1_logFile</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p2/phase2_logFile.txt">phase2_logFile</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p3/phase3_logFile.txt">phase2_logFile</a></td>
+						</tr>
+						<tr style="text-align:left;">
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p1/phase1_optFile.txt">phase1_optFile</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p2/phase2_optFile.txt">phase2_optFile</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p3/phase3_optFile.txt">phase3_optFile</a></td>
+						</tr>
+						<tr>
+							<td colspan="3">
+								<a class="xml" href="../../../downloads/results/dp/v0.1/optimizer/final/addMergPOSTAGS0I0FORMRight0.xml">Final Guides File</a> - 
+								<a class="xml" href="../../../downloads/results/dp/v0.1/optimizer/final/finalOptionsFile.xml">Final Options File</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
+			<h2>Checking the effect of part-of-speech tagging</h2>
+			<p>
+				
+			</p>
+			<center id="tbl4" style="margin-bottom: 20px;">
+				<div class="tblTitle">Table 4. Results of two POS tagsets in gold and predicted</div>
+				<table cellspacing="0" class="result" style="width: 500px;">
+					<thead>
+						<tr>
+							<td colspan="2">Method</td>
+							<td>MaltParser</td>
+							<td>MSTParser</td>
+							<td>Ensemble</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="thead" rowspan="2" style="direction:rtl;">Copy POS in CPOS column<br/> (30 tags)</td>
+							<td class="thead">Gold</td>
+							<td>84.73</td>
+							<td>84.56</td>
+							<td>84.84</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead">Predicted</td>
+							<td>74.06</td>
+							<td>74.79</td>
+							<td>74.78</td>
+						</tr>
+						<tr>
+							<td class="thead" rowspan="2" style="direction:rtl;">Copy CPOS in POS column<br/> (17 tags)</td>
+							<td class="thead">Gold</td>
+							<td>84.48</td>
+							<td>84.57</td>
+							<td>84.70</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead">Predicted</td>
+							<td>74.30</td>
+							<td>74.46</td>
+							<td>74.52</td>
+						</tr>
+						<tr>
+							<td colspan="5" style="direction:rtl;">
+								<a class="git" href="https://github.com/mojtaba-khallash/pos-tagger">A tool for preparing, training and tagging conll format with MXPOST</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
+			<script type="text/javascript">SyntaxHighlighter.all();</script>
+		</div>
+		
+		<div id="footer">
+			<div>
+				<ul class="connect">
+					<li class="iust">
+						<a href="http://www.iust.ac.ir/index.php?slc_lang=en&sid=14" title="School of Computer Engineering">School of Computer Engineering</a>
+					</li>
+				</ul>
+			</div>
+			<p>
+				Natural language and Text Processing Laboratory of Iran University of Science and Technology
+				<br/>
+				Copyright &copy; 2012. All Rights Reserved
+			</p>
+		</div>
+	</body>
+</html>
