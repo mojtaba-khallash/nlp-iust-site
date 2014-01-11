@@ -1,0 +1,72 @@
+/* Website Template by freewebsitetemplates.com */
+@font-face{ 
+	font-family:'BYekan';
+	src:url('fonts/BYekan.eot');/* IE6-IE8 */
+	src:url('fonts/BYekan.eot?#iefix') format('embedded-opentype'),/* IE9 Compat Modes */
+	     url('fonts/BYekan.woff') format('woff'),
+	     url('fonts/BYekan.ttf') format('truetype'),/* Safari, Android, iOS */
+	     url('fonts/BYekan.svg#webfont') format('svg');
+}
+body * {
+	font-family: BYekan;
+}
+#header div a.logo {
+	float: right;
+	margin: 10px 26px 0 0;
+}
+#header div ul {
+	float: left;
+}
+#header div ul li {
+	float: right;
+	font-size: 17px;
+}
+#body {
+	direction:rtl;
+}
+#body .footer ul.items li {
+	text-align: right;
+}
+#body .tabbed > ul li {
+	float: right;
+}
+#body .tabbed span {
+	margin-right: 5px;
+}
+#body .content ul li {
+	float: right;
+}
+#body .content ul li a img {
+	float: right;
+}
+#body .blog .sidebar {
+	float: right;
+}
+#body .blog .content {
+	float: right;
+}
+#body .blog .content .article a.figure {
+	float: right;
+}
+#body h2 {
+	font-size:22px;
+}
+#body p {
+	font-size:13px;
+}
+#body .blog .content .article p {
+	float: right;
+}
+#footer div ul.contact {
+	float: right;
+}
+#footer div ul.connect {
+	float: left;
+}
+#footer div ul.connect li {
+	float: right;
+}
+img.panel {float:right;}
+.lang {left: 15px;}
+.download_place {direction:rtl;}
+.git{background: url("../../images/types/git.png") no-repeat scroll right center transparent; padding-right: 20px;}

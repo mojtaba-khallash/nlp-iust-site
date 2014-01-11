@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="title" content="نتايج آزمايشات بر روی نسخه 1.0 پيکره وابستگی زبان فارسی"/>
+		<meta name="category" content="تجزيه وابستگی نتايج"/>
+		<meta name="classification" content="پردازش زبان طبيعی تجزيه وابستگی"/>
+		<title>نتايج آزمايشات بر روی نسخه 1.0 پيکره وابستگی زبان فارسی</title>
+		<link rel="stylesheet" href="../../../css/mainStyle.css" type="text/css">
+		<link rel="stylesheet" href="../../css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../css/syntax/shCoreDefault.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../css/jquery.jqplot.min.css" type="text/css"/>
+		
+		<script type="text/javascript" src="../../../js/syntax/shCore.js"></script>
+		<script type="text/javascript" src="../../../js/syntax/shBrushJava.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.jqplot.min.js"></script>
+        <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="../../../js/excanvas.js"></script><![endif]-->
+        <script type="text/javascript" src="../../../js/plugins/jqplot.canvasTextRenderer.min.js"></script>
+        <script type="text/javascript" src="../../../js/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+        <script type="text/javascript" src="../../../js/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
+        <script type="text/javascript" src="../../../js/plugins/jqplot.dateAxisRenderer.min.js"></script>
+        <script type="text/javascript" src="../../../js/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+        <script type="text/javascript" src="../../../js/plugins/jqplot.highlighter.min.js"></script>
+
+	</head>
+	<body>
+		<div id="header">
+			<a class="lang" href="../../../en/results/dp/version1.0.html">
+				<img src="../../../images/flag/English.png">
+				English
+			</a>
+			<div>
+				<a href="../../index.html" class="logo">
+					<img src="../../../images/iust.gif" alt="logo"/>
+				</a>
+				<ul>
+					<li>
+						<a href="../../index.html">خانه</a>
+					</li>
+					<li style="width: 140px;">
+						<a href="../../researchs.html">زمينه‌های تحقيقاتی</a>
+					</li>
+					<li>
+						<a href="../../publications.html">مقالات</a>
+					</li>
+					<li>
+						<a href="../../about.html">دربارة ما</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="body">
+			<h1>نتايج آزمايشات بر روی نسخه 1.0 پيکرة وابستگی زبان فارسی</h1>
+			<p>
+				در اين صفحه تنظيمات  و نتايج آزمايشات انجام شده در پايان‌نامه
+				<a href="../../../downloads/articles/Dependency Parsing.pdf" alt="مجتبی خلاش، 'ساز و کاری برای کشف تأثير ويژگی‌های مختلف ساخت‌واژی و صرفی بر روی تجزية وابستگی زبان فارسی'، پايان‌نامة کارشناسی ارشد، دانشکدة مهندسی کامپيوتر، دانشگاه علم و صنعت، تهران، 1391">
+					"ساز و کاری برای کشف تأثير ويژگی‌های مختلف ساخت‌واژی و صرفی بر روی تجزية وابستگی زبان فارسی"
+				</a>
+				بر روی دو تجزيه‌گر MaltParser و MSTParser ارائه شده است.
+			</p>
+			<h2>انتخاب الگوريتم مناسب در MaltParser</h2>
+			<p>
+				الگوريتم‌های مختلف موجود در MaltParser امتحان شدند که نتايج آن در <a href="#tbl1">جدول 1</a> ارائه شده است.
+				در اين ميان الگوريتم کاوينگتون غيرافکنشی بهترين عملکرد را در تجزية وابستگی زبان فارسی داراست.
+				در ادامة آزمايشات از اين الگوريتم استفاده شده است.
+				کلية آزمايشات با تنظيمات پيش‌فرض و با استفاده از دستور زير اجرا شده است.
+				<div style="direction:ltr;">
+					<pre class="brush: java;">java -jar maltParser.jar -a (algorithm-name)</pre>
+				</div>
+			</p>
+			<center id="tbl1" style="margin-bottom: 20px;">
+				<div class="tblTitle"></div>
+				<table cellspacing="0" class="result" style="width: 360px;">
+					<thead>
+						<tr>
+							<td rowspan="2">نوع</td>
+							<td colspan="2">(validation / test) صحت</td>
+						</tr>
+						<tr>
+							<td>LAS</td>
+							<td>UAS</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="alternate">
+							<td class="thead">کاوينگتون غيرافکنشی</td>
+							<td>87.70 / 87.68</td>
+							<td>90.54 / 90.41</td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
+			<h2>انتخاب الگوريتم مناسب در MSTParser</h2>
+			<p>
+				در ابزار MSTParser دو الگوريتم افکنشی (آيزنر) و غيرافکنشی (چو-ليو-ادموندز) در دو حالت مرتبه اول و دوم وجود دارد.
+				نتايج حاصل از اجرای اين الگوريتم‌ها بر روی زبان فارسی در <a href="#tbl2">جدول 2</a> آمده است.
+				الگوريتم مرتبه دوم غيرافکنشی بهترين عملکرد را داشته که در ادامه از اين الگوريتم استفاده شده است.
+			</p>
+			<center id="tbl2" style="margin-bottom: 20px;">
+				<div class="tblTitle">جدول 2. نتايج الگوريتم‌های مختلف موجود در ابزار MSTParser بر روی زبان فارسی</div>
+				<table cellspacing="0" class="result" style="width: 360px;">
+					<thead>
+						<tr>
+							<td rowspan="2">مرتبه</td>
+							<td rowspan="2">نوع</td>
+							<td colspan="2">(validation / test) صحت</td>
+						</tr>
+						<tr>
+							<td>LAS</td>
+							<td>UAS</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td rowspan="2" class="thead">اول</td>
+							<td class="thead">افکنشی</td>
+							<td>86.12 / 86.02</td>
+							<td>89.56 / 89.45</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead">غيرافکنشی</td>
+							<td>87.08 / 87.05</td>
+							<td>90.38 / 90.28</td>
+						</tr>
+						<tr>
+							<td rowspan="2" class="selected">دوم</td>
+							<td class="thead">افکنشی</td>
+							<td>87.08 / 86.97</td>
+							<td>90.63/ 90.42</td>
+						</tr>
+						<tr class="alternate">
+							<td class="selected">غيرافکنشی</td>
+							<td class="selected">88.04 / 87.98</td>
+							<td class="selected">91.50 / 91.30</td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
+			<h2>بهينه‌سازی MaltParser</h2>
+			<p>
+				به منظور بهينه‌سازی از ابزار MaltOptimizer استفاده شده است.
+			</p>
+			<center id="tbl3" style="margin-bottom: 20px;">
+				<div class="tblTitle">جدول 3. نتايج سه فاز بهينه‌سازی MaltOptimizer بر اساس LAS بر روی پيکرة وابستگی زبان فارسی</div>
+				<table cellspacing="0" class="result" style="width: 360px;">
+					<thead>
+						<tr>
+							<td>فاز 1</td>
+							<td>فاز 2</td>
+							<td>فاز 3</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>84.02</td>
+							<td>85.86</td>
+							<td>87.32</td>
+						</tr>
+						<tr style="text-align:left;">
+							<td><a class="txt" href="../../../downloads/results/dp/v1.0/optimizer/p1/Log.txt">Log.txt</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v1.0/optimizer/p2/Log.txt">Log.txt</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v1.0/optimizer/p3/Log.txt">Log.txt</a></td>
+						</tr>
+						<tr style="text-align:left;">
+							<td><a class="txt" href="../../../downloads/results/dp/v1.0/optimizer/p1/phase1_logFile.txt">phase1_logFile</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v1.0/optimizer/p2/phase2_logFile.txt">phase2_logFile</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v1.0/optimizer/p3/phase3_logFile.txt">phase2_logFile</a></td>
+						</tr>
+						<tr style="text-align:left;">
+							<td><a class="txt" href="../../../downloads/results/dp/v1.0/optimizer/p1/phase1_optFile.txt">phase1_optFile</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v1.0/optimizer/p2/phase2_optFile.txt">phase2_optFile</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v1.0/optimizer/p3/phase3_optFile.txt">phase3_optFile</a></td>
+						</tr>
+						<tr>
+							<td colspan="3">
+								<a class="xml" href="../../../downloads/results/dp/v1.0/optimizer/final/addSplitRightFEATS0.xml">Final Guides File</a> - 
+								<a class="xml" href="../../../downloads/results/dp/v1.0/optimizer/final/finalOptionsFile.xml">Final Options File</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
+			<h2>بررسی تأثير برچسب اجزای سخن</h2>
+			<p>
+				
+			</p>
+			<center id="tbl4" style="margin-bottom: 20px;">
+				<div class="tblTitle">جدول 4. نتايج برچسب اجزای سخن در حالت دستی و خودکار</div>
+				<table cellspacing="0" class="result" style="width: 500px;">
+					<thead>
+						<tr>
+							<td rowspan="2">روش</td>
+							<td colspan="2">(validation / test) صحت</td>
+						</tr>
+						<tr>
+							<td>MaltParser</td>
+							<td>MSTParser</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="direction:rtl" class="thead">برچسب دستی داده‌های train و validation</td>
+							<td>87.70 / 87.68</td>
+							<td>88.04 / 87.98</td>
+						</tr>
+						<tr>
+							<td style="direction:rtl" class="thead">برچسب خودکار داده‌های train و validation</td>
+							<td>85.94 / 86.00</td>
+							<td>84.82 / 84.97</td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
+			<h2>ارزيابی نتايج</h2>
+			<p>
+				
+			</p>
+			<center id="tbl5" style="margin-bottom: 20px;">
+				<div class="tblTitle">نمودار 1. بررسی صحت نسبت به طول وابستگی</div>
+				<div class='jqplot-target' id='sentence_length_accuracy'></div>
+				<script type="text/javascript">
+//					var line1 = [['<=10', 93.42],['11-20', 89.21],['21-30', 86.29],['31-40', 85.28],['41-50', 83.85],['>50', 78.97]];
+//					var line2 = [['<=10', 93.46],['11-20', 89.74],['21-30', 87.06],['31-40', 86.53],['41-50', 82.35],['>50', 78.74]];
+					var line1 = [[1, 93.42],[2, 89.21],[3, 86.29],[4, 85.28],[5, 83.85],[6, 78.97]];
+					var line2 = [[1, 93.46],[2, 89.74],[3, 87.06],[4, 86.53],[5, 82.35],[6, 78.74]];
+					var plot1 = $.jqplot('sentence_length_accuracy', [line1, line2], {
+						//animate: !$.jqplot.use_excanvas,
+						series: [
+							{label: 'Malt'},
+							{label: 'MST'}
+						],
+						legend: {
+							show: true,
+							placement: 'insideGrid'
+						},
+						axesDefaults: {
+							showTicks: false,
+							showTickMarks:false
+						},
+						axes:{
+							xaxis:{
+								label:'طول جملات',
+							},
+							yaxis:{
+								label:'صحت وابستگی',
+								tickOptions:{
+									formatString:'%.0f',
+								},
+								min:75.00,
+								max:95.00
+							}
+						},
+						highlighter: {
+							show: true,
+							sizeAdjust: 7.5,
+							formatString:'<span style="display:none;">%s</span>%s'
+						},
+						cursor: { show: false }
+					})
+				</script>
+			</center>
+			<script type="text/javascript">SyntaxHighlighter.all();</script>
+		</div>
+		
+		<div id="footer">
+			<div>
+				<ul class="connect">
+					<li class="iust">
+						<a href="http://www.iust.ac.ir/index.php?site=dept_ce" title="دانشکده مهندسی کامپيوتر">دانشکده مهندسی کامپيوتر</a>
+					</li>
+				</ul>
+			</div>
+			<p>
+				آزمایشگاه پردازش زبان طبیعی دانشگاه علم و صنعت ایران
+				<br/>
+				Copyright &copy; 2012. All Rights Reserved
+			</p>
+		</div>
+	</body>
+</html>

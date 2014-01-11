@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="title" content="نتايج آزمايشات بر روی نسخه 0.1 پيکره وابستگی زبان فارسی"/>
+		<meta name="category" content="تجزيه وابستگی نتايج"/>
+		<meta name="classification" content="پردازش زبان طبيعی تجزيه وابستگی"/>
+		<title>نتايج آزمايشات بر روی نسخه 0.1 پيکره وابستگی زبان فارسی</title>
+		<link rel="stylesheet" href="../../../css/mainStyle.css" type="text/css">
+		<link rel="stylesheet" href="../../css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../css/syntax/shCoreDefault.css" type="text/css"/>
+		
+		<script type="text/javascript" src="../../../js/syntax/shCore.js"></script>
+		<script type="text/javascript" src="../../../js/syntax/shBrushJava.js"></script>
+
+	</head>
+	<body>
+		<div id="header">
+			<a class="lang" href="../../../en/results/dp/version0.1.html">
+				<img src="../../../images/flag/English.png">
+				English
+			</a>
+			<div>
+				<a href="../../index.html" class="logo">
+					<img src="../../../images/iust.gif" alt="logo"/>
+				</a>
+				<ul>
+					<li>
+						<a href="../../index.html">خانه</a>
+					</li>
+					<li style="width: 140px;">
+						<a href="../../researchs.html">زمينه‌های تحقيقاتی</a>
+					</li>
+					<li>
+						<a href="../../publications.html">مقالات</a>
+					</li>
+					<li>
+						<a href="../../about.html">دربارة ما</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="body">
+			<h1>نتايج آزمايشات بر روی نسخه 0.1 پيکرة وابستگی زبان فارسی</h1>
+			<p>
+				در اين صفحه تنظيمات  و نتايج آزمايشات انجام شده در پايان‌نامه
+				<a href="../../../downloads/articles/Dependency Parsing.pdf" alt="مجتبی خلاش، 'ساز و کاری برای کشف تأثير ويژگی‌های مختلف ساخت‌واژی و صرفی بر روی تجزية وابستگی زبان فارسی'، پايان‌نامة کارشناسی ارشد، دانشکدة مهندسی کامپيوتر، دانشگاه علم و صنعت، تهران، 1391">
+					"ساز و کاری برای کشف تأثير ويژگی‌های مختلف ساخت‌واژی و صرفی بر روی تجزية وابستگی زبان فارسی"
+				</a>
+				بر روی دو تجزيه‌گر MaltParser و MSTParser ارائه شده است.
+			</p>
+			<h2>انتخاب الگوريتم مناسب در MaltParser</h2>
+			<p>
+				الگوريتم‌های مختلف موجود در MaltParser امتحان شدند که نتايج آن در <a href="#tbl1">جدول 1</a> ارائه شده است.
+				در اين ميان الگوريتم کاوينگتون غيرافکنشی بهترين عملکرد را در تجزية وابستگی زبان فارسی داراست.
+				در ادامة آزمايشات از اين الگوريتم استفاده شده است.
+				کلية آزمايشات با تنظيمات پيش‌فرض و با استفاده از دستور زير اجرا شده است.
+				<div style="direction:ltr;">
+					<pre class="brush: java;">java -jar maltParser.jar -a (algorithm-name)</pre>
+				</div>
+			</p>
+			<center id="tbl1" style="margin-bottom: 20px;">
+				<div class="tblTitle">جدول 1. نتايج الگوريتم‌های مختلف موجود در ابزار MaltParser بر روی زبان فارسی</div>
+				<table cellspacing="0" class="result" style="width: 580px;">
+					<thead>
+						<tr>
+							<td rowspan="2">نوع</td>
+							<td rowspan="2">الگوريتم</td>
+							<td rowspan="2">سال</td>
+							<td rowspan="2" class="selected">صحت پايه‌ای</td>
+							<td colspan="3">صحت شبه‌افکنشی‌سازی</td>
+						</tr>
+						<tr>
+							<td>Head</td>
+							<td>Path</td>
+							<td>Head+Path</td>
+						</td>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="thead" rowspan="4">افکنشی</td>
+							<td class="thead">Arc Eager</td>
+							<td>2003</td>
+							<td>81.68</td>
+							<td>82.78</td>
+							<td>82.74</td>
+							<td>82.69</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead">Arc Standard</td>
+							<td>2004</td>
+							<td>79.82</td>
+							<td>81.74</td>
+							<td>81.74</td>
+							<td>81.75</td>
+						</tr>
+						<tr>
+							<td class="thead">Covington</td>
+							<td>2001</td>
+							<td>81.61</td>
+							<td>82.84</td>
+							<td>82.58</td>
+							<td>82.62</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead">Stack</td>
+							<td>2009</td>
+							<td>79.94</td>
+							<td>81.84</td>
+							<td>81.87</td>
+							<td>81.86</td>
+						</tr>
+						<tr>
+							<td rowspan="3" class="selected">غيرافکنشی</td>
+							<td class="selected">Covington</td>
+							<td>2001</td>
+							<td class="selected">83.16</td>
+							<td>82.90</td>
+							<td>82.77</td>
+							<td>-</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead">Stack Eager</td>
+							<td>2009</td>
+							<td>77.21</td>
+							<td>82.06</td>
+							<td>81.95</td>
+							<td>81.97</td>
+						</tr>
+						<tr>
+							<td class="thead">Stack Lazy</td>
+							<td>2009</td>
+							<td>81.31</td>
+							<td>81.84</td>
+							<td>81.86</td>
+							<td>81.86</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead" rowspan="2">مسطح</td>
+							<td class="thead">Planar</td>
+							<td>2010</td>
+							<td>80.50</td>
+							<td>81.16</td>
+							<td>81.04</td>
+							<td>81.09</td>
+						</tr>
+						<tr>
+							<td class="thead">2-planar</td>
+							<td>2010</td>
+							<td>80.68</td>
+							<td>81.28</td>
+							<td>81.14</td>
+							<td>81.25</td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
+			<h2>انتخاب الگوريتم مناسب در MSTParser</h2>
+			<p>
+				در ابزار MSTParser دو الگوريتم افکنشی (آيزنر) و غيرافکنشی (چو-ليو-ادموندز) در دو حالت مرتبه اول و دوم وجود دارد.
+				نتايج حاصل از اجرای اين الگوريتم‌ها بر روی زبان فارسی در <a href="#tbl2">جدول 2</a> آمده است.
+				الگوريتم مرتبه دوم غيرافکنشی بهترين عملکرد را داشته که در ادامه از اين الگوريتم استفاده شده است.
+			</p>
+			<center id="tbl2" style="margin-bottom: 20px;">
+				<div class="tblTitle">جدول 2. نتايج الگوريتم‌های مختلف موجود در ابزار MSTParser بر روی زبان فارسی</div>
+				<table cellspacing="0" class="result" style="width: 360px;">
+					<thead>
+						<tr>
+							<td>مرتبه</td>
+							<td>نوع</td>
+							<td class="selected">صحت</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td rowspan="2" class="thead">اول</td>
+							<td class="thead">افکنشی</td>
+							<td>82.94</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead">غيرافکنشی</td>
+							<td>83.59</td>
+						</tr>
+						<tr>
+							<td rowspan="2" class="selected">دوم</td>
+							<td class="thead">افکنشی</td>
+							<td>83.74</td>
+						</tr>
+						<tr class="alternate">
+							<td class="selected">غيرافکنشی</td>
+							<td class="selected">84.59</td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
+			<h2>بهينه‌سازی MaltParser</h2>
+			<p>
+				به منظور بهينه‌سازی از ابزار MaltOptimizer استفاده شده است.
+				<div style="direction:ltr;">
+					<pre class="brush: java;">
+						// Run phase 1
+						java -jar MaltOptimizer.jar -p 1 -m maltParser.jar -c input.conll
+						
+						// Run phase 2
+						java -jar MaltOptimizer.jar -p 2 -m maltParser.jar -c input.conll
+						
+						// Run phase 3
+						java -jar MaltOptimizer.jar -p 3 -m maltParser.jar -c input.conll</pre>
+				</div>
+			</p>
+			<center id="tbl3" style="margin-bottom: 20px;">
+				<div class="tblTitle">جدول 3. نتايج سه فاز بهينه‌سازی MaltOptimizer بر روی پيکرة وابستگی زبان فارسی</div>
+				<table cellspacing="0" class="result" style="width: 360px;">
+					<thead>
+						<tr>
+							<td>فاز 1</td>
+							<td>فاز 2</td>
+							<td>فاز 3</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>82.25</td>
+							<td>83.64</td>
+							<td>85.06</td>
+						</tr>
+						<tr style="text-align:left;">
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p1/Log.txt">Log.txt</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p2/Log.txt">Log.txt</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p3/Log.txt">Log.txt</a></td>
+						</tr>
+						<tr style="text-align:left;">
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p1/phase1_logFile.txt">phase1_logFile</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p2/phase2_logFile.txt">phase2_logFile</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p3/phase3_logFile.txt">phase2_logFile</a></td>
+						</tr>
+						<tr style="text-align:left;">
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p1/phase1_optFile.txt">phase1_optFile</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p2/phase2_optFile.txt">phase2_optFile</a></td>
+							<td><a class="txt" href="../../../downloads/results/dp/v0.1/optimizer/p3/phase3_optFile.txt">phase3_optFile</a></td>
+						</tr>
+						<tr>
+							<td colspan="3">
+								<a class="xml" href="../../../downloads/results/dp/v0.1/optimizer/final/addMergPOSTAGS0I0FORMRight0.xml">Final Guides File</a> - 
+								<a class="xml" href="../../../downloads/results/dp/v0.1/optimizer/final/finalOptionsFile.xml">Final Options File</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
+			<h2>بررسی تأثير برچسب اجزای سخن</h2>
+			<p>
+				
+			</p>
+			<center id="tbl4" style="margin-bottom: 20px;">
+				<div class="tblTitle">جدول 4. نتايج دو مجموعه برچسب اجزای سخن در حالت دستی و خودکار</div>
+				<table cellspacing="0" class="result" style="width: 500px;">
+					<thead>
+						<tr>
+							<td colspan="2">روش</td>
+							<td>MaltParser</td>
+							<td>MSTParser</td>
+							<td>Ensemble</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="thead" rowspan="2" style="direction:rtl;">کپی ستون POS در ستون CPOS <br/> (30 برچسب)</td>
+							<td class="thead">برچسب دستی</td>
+							<td>84.73</td>
+							<td>84.56</td>
+							<td>84.84</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead">برچسب خودکار</td>
+							<td>74.06</td>
+							<td>74.79</td>
+							<td>74.78</td>
+						</tr>
+						<tr>
+							<td class="thead" rowspan="2" style="direction:rtl;">کپی ستون CPOS در ستون POS <br/> (17 برچسب)</td>
+							<td class="thead">برچسب دستی</td>
+							<td>84.48</td>
+							<td>84.57</td>
+							<td>84.70</td>
+						</tr>
+						<tr class="alternate">
+							<td class="thead">برچسب خودکار</td>
+							<td>74.30</td>
+							<td>74.46</td>
+							<td>74.52</td>
+						</tr>
+						<tr>
+							<td colspan="5" style="direction:rtl;">
+								<a class="git" href="https://github.com/mojtaba-khallash/pos-tagger">ابزار کار با MXPOST برای آماده‌سازی، آموزش و برچسب‌زنی</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
+			<script type="text/javascript">SyntaxHighlighter.all();</script>
+		</div>
+		
+		<div id="footer">
+			<div>
+				<ul class="connect">
+					<li class="iust">
+						<a href="http://www.iust.ac.ir/index.php?site=dept_ce" title="دانشکده مهندسی کامپيوتر">دانشکده مهندسی کامپيوتر</a>
+					</li>
+				</ul>
+			</div>
+			<p>
+				آزمایشگاه پردازش زبان طبیعی دانشگاه علم و صنعت ایران
+				<br/>
+				Copyright &copy; 2012. All Rights Reserved
+			</p>
+		</div>
+	</body>
+</html>

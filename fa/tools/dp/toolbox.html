@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="title" content="جعبه ابزار تجزيه وابستگی"/>
+		<meta name="category" content="تجزيه وابستگی ابزار"/>
+		<meta name="classification" content="پردازش زبان طبيعی تجزيه وابستگی"/>
+		<title>جعبه ابزار تجزيه وابستگی</title>
+		<meta name="description" content="معرفی جعبه ابزار تجزيه وابستگی که شامل تبديل فرمت، خواندن پيکره، توليد درخت وابستگی، افکنشی سازی، بهينه سازی، آموزش، تجزيه، ارزيابی نتايج و روش‌های ترکيبی است."/>
+		
+		<link rel="stylesheet" href="../../../css/mainStyle.css" type="text/css">
+		<link rel="stylesheet" href="../../css/style.css" type="text/css">
+		<link rel="stylesheet" href="../../../css/jquery.tabs.css" type="text/css" media="print, projection, screen">
+		<!-- Additional IE/Win specific style sheet (Conditional Comments) -->
+		<!--[if lte IE 7]>
+		<link rel="stylesheet" href="../../../css/jquery.tabs-ie.css" type="text/css" media="projection, screen">
+		<![endif]-->
+		
+		<script src="../../../js/jquery.js" type="text/javascript"></script>
+		<script src="../../../js/jquery.tabs.pack.js" type="text/javascript"></script>
+		<script src="../../../js/jquery.stickyscroll.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="header">
+			<a class="lang" href="../../../en/tools/dp/toolbox.html">
+				<img src="../../../images/flag/English.png">
+				English
+			</a>
+			<div>
+				<a href="../index.html" class="logo">
+					<img src="../../../images/iust.gif" alt="logo"/>
+				</a>
+				<ul>
+					<li>
+						<a href="../../index.html">خانه</a>
+					</li>
+					<li style="width: 140px;">
+						<a href="../../researchs.html">زمينه‌های تحقيقاتی</a>
+					</li>
+					<li>
+						<a href="../../publications.html">مقالات</a>
+					</li>
+					<li>
+						<a href="../../about.html">دربارة ما</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="download_place">
+			<center>
+				دانلود
+			</center>
+			<hr/>
+			<a href="https://github.com/mojtaba-khallash/dependency-parsing-toolbox" class="git" style="margin: 0px 15px;">دريافت سورس برنامه</a>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$.fn.followTo = function ( pos ) {
+					var $this = this,
+						$window = $(window);
+
+					$window.scroll(function(e){
+						if ($window.scrollTop() > pos) {
+							$this.css({
+								position: 'fixed',
+								top: 10
+							});
+						} else {
+							$this.css({
+								position: 'absolute',
+								top: pos
+							});
+						}
+					});
+				};
+
+				top_value = parseInt($('.download_place').css('top'));
+				$('.download_place').followTo(top_value);
+			});
+		</script>
+		
+		<div id="body">
+			<h1>جعبه ابزار تجزية وابستگی</h1>
+			<p>
+				برای تجزية وابستگی ابزارهای مختلفی طراحی شده است که برای برخی از آن‌ها توسعه‌هايی نيز ارائه شده است. 
+				اما تا کنون محيطی يکپارچه برای الگوريتم‌ها و روش‌های مختلف تجزية وابستگی طراحی نشده است.
+				در اين جعبه ابزار سعی شده تا انواع الگوريتم‌های موجود و نيازمندی‌های مرتبط با تجزية وابستگی جمع‌آوری و در صورت نياز توليد شوند.
+				لازم به ذکر است که تمامی تجزيه‌گرهای موجود تنها از طريق خط فرمان قابل اجرا هستند و هر کدام پارامترهای خاص خود را دارند
+				و کار کردن با آن‌ها نيازمند مطالعة راهنمای ابزار است. اما جعبه ابزار طراحی شده دارای واسط کاربری برای کار کردن با اين ابزارهاست
+				که کاربری آن‌ها را ساده‌تر کرده و شامل بخش‌های زير است:
+			</p>
+			<div class="footer tabbed">
+				<ul>
+					<li><a href="#format-converter"><span>تبديل فرمت</span></a></li>
+					<li><a href="#reading-corpus"><span>خواندن پيکره</span></a></li>
+					<li><a href="#create-tree"><span>توليد درخت</span></a></li>
+					<li><a href="#projectivizing"><span>افکنشی سازی</span></a></li>
+					<li><a href="#optimizing"><span>بهينه سازی</span></a></li>
+					<li><a href="#training"><span>آموزش</span></a></li>
+					<li><a href="#parsing"><span>تجزيه</span></a></li>
+					<li><a href="#evaluating"><span>ارزيابی</span></a></li>
+					<li><a href="#hybrid-methods"><span>روش‌‌های ترکيبی</span></a></li>
+				</ul>
+				<div id="format-converter">
+					<img src="../../../images/tools/type_converter.jpg" alt="reading corpus" style="width:400px;float:left;"/>
+					<span class="title">خصوصيات</span>
+					<ul class="items">
+						<li>تبدیل از فرمت mst به conll و بالعکس</li>
+						<li>تبدیل بین سه فرمت tiger، malt-tab و malt-xml</li>
+					</ul>
+					<br/>
+					<span class="title">ابزارهای استفاده شده</span>
+					<ul class="items">
+						<li>MaltConverter</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="reading-corpus">
+					<img src="../../../images/tools/read_corpus.jpg" alt="reading corpus" style="width:400px;float:left;"/>
+					<span class="title">خصوصيات</span>
+					<ul class="items">
+						<li>ترسيم درخت وابستگی در چهار حالت مختلف</li>
+						<li>ترسيم نمودار توزيع طول جملات پيکره</li>
+					</ul>
+					<br/>
+					<span class="title">ابزارهای استفاده شده</span>
+					<ul class="items">
+						<li>MaltEval</li>
+						<li>Chart2D</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="create-tree">
+					<img src="../../../images/tools/create_dt.jpg" alt="create dependency tree" style="width:400px;float:left;"/>
+					<span class="title">خصوصيات</span>
+					<ul class="items">
+						<li>امکان وارد کردن واژه‌ها به همراه برچسب اجزای سخن</li>
+						<li>واژه‌ها به محض ورود با برچسب وابستگی پيش‌فرض ROOT به ريشه درخت متصل می‌شوند.</li>
+						<li>ذخيره‌سازی درخت توليد شده به فرمت CoNLL</li>
+					</ul>
+					<br/>
+					<span class="title">ابزارهای استفاده شده</span>
+					<ul class="items">
+						<li>MaltEval</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="projectivizing">
+					<img src="../../../images/tools/projection.jpg" alt="projection of dependency tree" style="width:500px;float:left;"/>
+					<span class="title">خصوصيات</span>
+					<ul class="items">
+						<li>امکان نمايش درخت قبل و بعد از افکنشی‌سازی</li>
+					</ul>
+					<br/>
+					<span class="title">ابزارهای استفاده شده</span>
+					<ul class="items">
+						<li>MaltParser</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="optimizing">
+					<img src="../../../images/tools/optimizing.jpg" alt="optimizing" style="width:400px;float:left;"/>
+					<span class="title">خصوصيات</span>
+					<ul class="items">
+						<li>بهينه‌سازی MaltParser در سه مرحله</li>
+					</ul>
+					<br/>
+					<span class="title">ابزارهای استفاده شده</span>
+					<ul class="items">
+						<li>MaltOptimizer</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="training">
+					<img src="../../../images/tools/train.jpg" alt="reading corpus" style="width:400px;float:left;"/>
+					<span class="title">خصوصيات</span>
+					<ul class="items">
+						<li></li>
+					</ul>
+					<br/>
+					<span class="title">ابزارهای استفاده شده</span>
+					<ul class="items">
+						<li>MaltParser</li>
+						<li>ClearParser</li>
+						<li>MSTParser</li>
+						<li>Mate-Tools</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="parsing">
+					<img src="../../../images/tools/test.jpg" alt="reading corpus" style="width:400px;float:left;"/>
+					<span class="title">خصوصيات</span>
+					<ul class="items">
+						<li>نمايش درخت Gold و Parse در کنار هم به منظور مقايسه</li>
+					</ul>
+					<br/>
+					<span class="title">ابزارهای استفاده شده</span>
+					<ul class="items">
+						<li>MaltParser</li>
+						<li>ClearParser</li>
+						<li>MSTParser</li>
+						<li>Mate-Tools</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="evaluating">
+					<img src="../../../images/tools/eval.jpg" alt="evaluating" style="width:400px;float:left;"/>
+					<span class="title">خصوصيات</span>
+					<ul class="items">
+						<li>تعيين يک یا چند معيار ارزيابی</li>
+						<li>گروه‌بندی نتايج به همراه امکان فيلتر، مرتب‌سازی نتايج</li>
+						<li>محاسبة Confusion Matrix</li>
+					</ul>
+					<br/>
+					<span class="title">ابزارهای استفاده شده</span>
+					<ul class="items">
+						<li>MaltEval</li>
+					</ul>
+					<br style="clear:both;"/>
+				</div>
+				<div id="hybrid-methods">
+					<div>
+						<img src="../../../images/tools/ensemble.jpg" alt="ensemble" style="width:400px;float:left;"/>
+						<h2>ترکيب در زمان تجزيه (Ensemble)</h2>
+						<span class="title">خصوصيات</span>
+						<ul class="items">
+							<li>پشتيبانی از چهار الگوريتم رأی‌گيری، اتاردی، آيزنر و چو-ليو-ادموندز</li>
+						</ul>
+						<br/>
+						<span class="title">ابزارهای استفاده شده</span>
+						<ul class="items">
+							<li>Ensemble</li>
+							<li>MaltBlender</li>
+						</ul>
+						<br style="clear:both;"/>
+					</div>
+					<div style="margin-top:10px;">
+						<img src="../../../images/tools/stacking.jpg" alt="stacking" style="width:400px;float:left;clear:left;"/>
+						<h2>ترکيب در زمان آموزش (Stacking)</h2>
+						<span class="title">خصوصيات</span>
+						<ul class="items">
+							<li>استفاده از MaltParser و MSTParser در سطح 1</li>
+							<li>استفاده از MSTParser در سطح 2</li>
+						</ul>
+						<br/>
+						<span class="title">ابزارهای استفاده شده</span>
+						<ul class="items">
+							<li>MSTParserStack</li>
+						</ul>
+						<br style="clear:both;"/>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				$(function() {
+					$('.footer').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'normal' });
+				});
+			</script>
+		</div>
+		
+		<div id="footer">
+			<div>
+				<ul class="connect">
+					<li class="iust">
+						<a href="http://www.iust.ac.ir/index.php?site=dept_ce" title="دانشکده مهندسی کامپيوتر">دانشکده مهندسی کامپيوتر</a>
+					</li>
+				</ul>
+			</div>
+			<p>
+				آزمایشگاه پردازش زبان طبیعی دانشگاه علم و صنعت ایران
+				<br/>
+				Copyright &copy; 2012. All Rights Reserved
+			</p>
+		</div>
+	</body>
+</html>
