@@ -559,7 +559,7 @@ li.results span, li.toolbox span, li.tools span {position: relative;top: -10px;m
 .about div.col2 {float:left;clear:left;}
 img.panel {width: 85px; box-shadow: 0px 0px 15px #888888; border: 1px solid #BAB6B4;}
 .about .name {font-weight: bold; font-size: 20px; margin: 0px 20px;line-height:50px;}
-.about .academic_rank, .about .email {line-height:30px;margin: 0px 20px;}
+.about .academic_rank, .other, .about .email {line-height:30px;margin: 0px 20px;}
 .publication div {direction:ltr;padding: 10px 30px;line-height:22px;}
 .lang {position: absolute; width: 70px; padding: 5px 5px 2px 10px; border-radius: 5px 5px 5px 5px; border: 1px solid transparent; top: 10px;cursor:pointer;}
 .lang:hover {border: 1px solid #BAB6B4!important; background:#E7E7E7;}
